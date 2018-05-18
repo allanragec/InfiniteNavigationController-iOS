@@ -1,0 +1,16 @@
+PODS:
+  - InfiniteNavigationController-iOS (0.1.0)
+
+DEPENDENCIES:
+  - InfiniteNavigationController-iOS (from `../../`)
+
+EXTERNAL SOURCES:
+  InfiniteNavigationController-iOS:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  InfiniteNavigationController-iOS: 458a27c36334dbf81f3fe079846cd41f101cfab9
+
+PODFILE CHECKSUM: e210341fcd4d8579d1a16a6e76073c0bab954794
+
+COCOAPODS: 1.5.2

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'InfiniteNavigationController-iOS'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'Library to keep the ViewControllers stack limited.'
   s.homepage         = "https://github.com/allanragec/InfiniteNavigationController-iOS"
   s.license          = {

@@ -2,6 +2,8 @@
 
 # InfiniteNavigationController-iOS
 
+![Logo](https://github.com/allanragec/InfiniteNavigationController-iOS/raw/master/infinite.png)
+
 ## Library to keep the stack of view controllers limited in memory. Make your app with infinite navigation with low memory use. Allows the users to create a state model of your view controller, making possible destroy and reconstruct when is necessary.
 
 ### How to use ?

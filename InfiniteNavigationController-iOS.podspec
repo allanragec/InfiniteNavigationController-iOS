@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'InfiniteNavigationController-iOS'
-  s.version          = '1.0.0'
-  s.summary          = 'Library to keep the ViewControllers stack limited.'
+  s.version          = '1.1.0'
+  s.summary          = 'Library to keep the stack of view controllers limited in memory. Make your app with infinite navigation with low memory use.'
   s.homepage         = "https://github.com/allanragec/InfiniteNavigationController-iOS"
   s.license          = {
                          :type => "LPGL 2.1",

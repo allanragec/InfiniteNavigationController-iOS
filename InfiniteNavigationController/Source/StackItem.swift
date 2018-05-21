@@ -7,11 +7,11 @@
 //
 
 public struct StackItem {
-	public init(viewControllerIdentifier: String, stateModel: Any? = nil) {
-		self.viewControllerIdentifier = viewControllerIdentifier
+	public init(viewController: @escaping () -> (UIViewController), stateModel: Any? = nil) {
+		self.viewController = viewController
 		self.stateModel = stateModel
 	}
 	
-	public let viewControllerIdentifier: String
+	public let viewController: () -> (UIViewController)
 	public let stateModel: Any?
 }

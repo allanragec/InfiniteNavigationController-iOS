@@ -10,7 +10,17 @@ import UIKit
 import InfiniteNavigationController_iOS
 
 class ViewController: UIViewController {
-
+	@IBOutlet weak var slider: UISlider!
+	var sliderValue: Float = 0.5
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		slider.value = sliderValue
+		slideAction(slider)
+	}
+	
+	
 	@IBAction func slideAction(_ sender: Any) {
 		guard let slider = sender as? UISlider else {
 			return
@@ -23,28 +33,31 @@ class ViewController: UIViewController {
 		guard let button  = sender as? UIButton,
 			let text = button.currentTitle,
 			let navigationController = navigationController,
-			let viewController = navigationController.storyboard?.instantiateViewController(withIdentifier: VIEWCONTROLLER_IDENTIFIER) else {
+			let viewController = navigationController.storyboard?.instantiateViewController(withIdentifier: "defaultViewController") else {
 				return
 		}
 		
-		navigationController.pushViewController(viewController, animated: false)
+		navigationController.pushViewController(viewController, animated: true)
 		viewController.title = text
 		
-		print("Number of viewControllers on stack \(navigationController.viewControllers.count)")
+		print("Number of viewControllers in memory \(navigationController.viewControllers.count)")
 	}
 	
-	let VIEWCONTROLLER_IDENTIFIER = "defaultViewController"
 }
 
 extension ViewController: StackProtocol {
 	func getStateModel() -> StackItem {
-		return StackItem(viewControllerIdentifier: VIEWCONTROLLER_IDENTIFIER, stateModel: (title, view.backgroundColor))
+		return StackItem(viewController: {
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		
+			return storyboard.instantiateViewController(withIdentifier: "defaultViewController")
+		}, stateModel: (title, slider.value))
 	}
 	
 	func setState(model: StackItem) {
-		if let (text, color) = model.stateModel as? (String, UIColor) {
+		if let (text, value) = model.stateModel as? (String, Float) {
 			title = text
-			view.backgroundColor = color
+			sliderValue = value
 		}
 	}
 }

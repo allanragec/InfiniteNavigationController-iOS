@@ -88,6 +88,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="A" id="JqK-br-q3u"/>
+                    <connections>
+                        <outlet property="slider" destination="xAa-Nc-L3Q" id="VqZ-k1-ruK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

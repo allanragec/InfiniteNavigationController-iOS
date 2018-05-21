@@ -6,7 +6,7 @@
 //  Copyright © 2018 Allan Melo. All rights reserved.
 //
 
-public protocol StackProtocol {
-	func getStateModel() -> StackItem
-	func setState(model: StackItem)
+@objc public protocol StackProtocol {
+	@objc func getStateModel() -> StackItem
+	@objc optional func setState(model: StackItem)
 }

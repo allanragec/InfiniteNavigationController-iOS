@@ -20,7 +20,6 @@ class ViewController: UIViewController {
 		slideAction(slider)
 	}
 	
-	
 	@IBAction func slideAction(_ sender: Any) {
 		guard let slider = sender as? UISlider else {
 			return
@@ -42,14 +41,21 @@ class ViewController: UIViewController {
 		
 		print("Number of viewControllers in memory \(navigationController.viewControllers.count)")
 	}
-	
 }
 
 extension ViewController: StackProtocol {
 	func getStateModel() -> StackItem {
-		return StackItem(viewController: {
+		return StackItem(viewController: { stateModel in
+			if let (title, sliderValue) = stateModel as? (String, Float) {
+				print("""
+					You can get your stateModel to
+					instantiate your ViewController if you are using XIB's
+					\(title), \(sliderValue)
+					""")
+			}
+			
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		
+			
 			return storyboard.instantiateViewController(withIdentifier: "defaultViewController")
 		}, stateModel: (title, slider.value))
 	}

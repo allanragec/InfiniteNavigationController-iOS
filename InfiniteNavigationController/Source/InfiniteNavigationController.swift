@@ -17,8 +17,8 @@ public class InfiniteNavigationController : UINavigationController {
 		let viewController = super.popViewController(animated: animated)
 		
 		if let item = stackItems.popLast(),
-			let viewController = item.viewController() as? UIViewController & StackProtocol {
-			viewController.setState(model: item)
+			let viewController = item.viewController(item.stateModel) as? UIViewController & StackProtocol {
+			viewController.setState?(model: item)
 			viewControllers.insert(viewController, at: 0)
 		}
 		

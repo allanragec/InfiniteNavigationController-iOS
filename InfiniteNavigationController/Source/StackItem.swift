@@ -6,12 +6,12 @@
 //  Copyright © 2018 Allan Melo. All rights reserved.
 //
 
-public struct StackItem {
-	public init(viewController: @escaping () -> (UIViewController), stateModel: Any? = nil) {
+public class StackItem: NSObject {
+	public init(viewController: @escaping (Any?) -> (UIViewController), stateModel: Any? = nil) {
 		self.viewController = viewController
 		self.stateModel = stateModel
 	}
 	
-	public let viewController: () -> (UIViewController)
+	public let viewController: (Any?) -> (UIViewController)
 	public let stateModel: Any?
 }

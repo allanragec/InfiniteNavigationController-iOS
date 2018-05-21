@@ -6,7 +6,7 @@
 
 ### How to use ?
 
-You only need to implement the StackProcotol on your view controller like:
+You only need to use the InfiniteNavigationController and need to implement the StackProcotol on your view controllers like:
     
     extension ViewController: StackProtocol {
         func getStateModel() -> StackItem {
@@ -33,9 +33,9 @@ You only need to implement the StackProcotol on your view controller like:
         }
     }
 
-- On getStateModel() method, you need return a StackItem object. StackItem has two parameters: 
-    - A block to return your view controller (this allow the users to use Storyboard or XIB's)
-    - A state model, to persist any state that the user want.
+- On getStateModel() method, you need return a StackItem object. The StackItem has two parameters: 
+    - A block to return your view controller (this allow the users to use Storyboard or XIB's). Is strongly recomended to avoid the access of your current instance, to avoid memory leaks. 
+    - A state model, to persist any state that user want.
 
 - setState() method is optional, you implement if you need to restore the state of your view again.
 
